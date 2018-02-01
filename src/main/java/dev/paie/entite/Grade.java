@@ -33,6 +33,18 @@ public class Grade {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Override
+	public boolean equals (Object obj){
+        if (obj!= null && (obj.getClass().equals(this.getClass()))){
+            if (obj instanceof Grade){
+            	Grade grd = (Grade)obj;
+                return (this.id==grd.getId());
+            }
+        return false;
+        }
+		return false;
+        }
+	
 	
 	
 

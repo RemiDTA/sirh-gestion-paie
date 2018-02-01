@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan("dev.paie.service")
-@Import(DataSourceMySQLConfig.class)
+@Import({DataSourceMySQLConfig.class, JpaConfig.class})
 public class ServicesConfig {
 	
 }

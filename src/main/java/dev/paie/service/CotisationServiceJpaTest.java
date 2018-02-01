@@ -41,7 +41,6 @@ public void test_sauvegarder_lister_mettre_a_jour() {
 	
 	c.setLibelle("cotisation2");
 	cotisationService.mettreAJour(c);
-	assertThat(listCoti, hasItem(c));
 
 }
 }

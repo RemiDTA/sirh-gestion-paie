@@ -9,14 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+@Entity
 @Table(name = "bulletinSalaire")
 public class BulletinSalaire {
 	@Id
 	private Integer id;
 	@ManyToOne
+	@JoinColumn(name="remu_id")
 	private RemunerationEmploye remunerationEmploye;
 	@ManyToOne
+	@JoinColumn(name="per_id")
 	private Periode periode;
 	@Column(name = "primeExceptionnelle", scale=2)
 	private BigDecimal primeExceptionnelle;

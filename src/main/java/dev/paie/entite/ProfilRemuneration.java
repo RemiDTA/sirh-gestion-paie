@@ -8,18 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+@Entity
 @Table(name = "profilRemuneration")
 public class ProfilRemuneration {
 	@Id
 	private Integer id;
 	@Column(name = "code", length = 30)
 	private String code;
-	@OneToMany(mappedBy="id")
+	@OneToMany
 	private List<Cotisation> cotisationsNonImposables;
-	@OneToMany(mappedBy="id")
+	@OneToMany
 	private List<Cotisation> cotisationsImposables;
-	@OneToMany(mappedBy="id")
+	@OneToMany
 	private List<Avantage> avantages;
 
 	public Integer getId() {

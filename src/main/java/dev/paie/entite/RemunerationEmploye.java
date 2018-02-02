@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+@Entity
 @Table(name = "remunerationEmploye")
 public class RemunerationEmploye {
 	@Id
@@ -15,10 +15,13 @@ public class RemunerationEmploye {
 	@Column(name = "code", length = 30)
 	private String matricule;
 	@ManyToOne
+	@JoinColumn(name="entr_id")
 	private Entreprise entreprise;
 	@ManyToOne
+	@JoinColumn(name="profil_id")
 	private ProfilRemuneration profilRemuneration;
 	@ManyToOne
+	@JoinColumn(name="grade_id")
 	private Grade grade;
 
 	public String getMatricule() {

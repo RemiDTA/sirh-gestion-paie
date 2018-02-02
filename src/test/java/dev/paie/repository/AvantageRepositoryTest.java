@@ -23,8 +23,7 @@ import dev.paie.entite.Avantage;
 //test
 @RunWith(SpringRunner.class)
 public class AvantageRepositoryTest {
-@Autowired 
-private AvantageRepository avantageRepository;
+
 @Autowired
 private AvantageRepository aRepo;
 @Test
@@ -42,7 +41,10 @@ public void test_sauvegarder_lister_mettre_a_jour() {
 	a.setCode("avantage2");
 	aRepo.save(a);
 	Avan= aRepo.findOne(1);
-	assertTrue("avantage2".equals(Avan.getCode()));
+	Avantage avan2=new Avantage();
+	avan2 = aRepo.findByCode(Avan.getCode());
+	assertTrue(Avan.equals(avan2));
+
 
 }
 }

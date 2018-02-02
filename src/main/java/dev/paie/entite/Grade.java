@@ -2,11 +2,21 @@ package dev.paie.entite;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "grade")
 public class Grade {
-	
+	@Id
 	private Integer id;
+	@Column(name = "code", length = 30)
 	private String code;
+	@Column(name = "nbHeuresBase", scale=2)
 	private BigDecimal nbHeuresBase;
+	@Column(name = "tauxBase", scale=2)
 	private BigDecimal tauxBase;
 	
 	public String getCode() {

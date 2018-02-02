@@ -50,4 +50,16 @@ public class Avantage {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	@Override
+	public boolean equals (Object obj){
+        if (obj!= null && (obj.getClass().equals(this.getClass()))){
+            if (obj instanceof Avantage){
+            	Avantage avan = (Avantage)obj;
+                return (this.id==avan.getId()&&this.code.equals(avan.getCode()));
+            }
+        return false;
+        }
+		return false;
+        }
 }

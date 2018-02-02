@@ -1,12 +1,21 @@
 package dev.paie.repository;
 
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.ServicesConfig;
+import dev.paie.entite.Avantage;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
 @ContextConfiguration(classes = { ServicesConfig.class })
@@ -16,11 +25,24 @@ import dev.paie.config.ServicesConfig;
 public class AvantageRepositoryTest {
 @Autowired 
 private AvantageRepository avantageRepository;
+@Autowired
+private AvantageRepository aRepo;
 @Test
 public void test_sauvegarder_lister_mettre_a_jour() {
-//TODO sauvegarder un nouvel avantage
-//TODO vérifier qu'il est possible de récupérer le nouvel avantage via la méthode findOne
-//TODO modifier un avantage
-//TODO vérifier que les modifications sont bien prises en compte via la méthode findOne
+
+	aRepo.deleteAll();
+	Avantage a=new Avantage();
+	a.setCode("avantage1");
+	a.setId(1);
+	a.setMontant(new BigDecimal("1528.69"));
+	a.setNom("nomAvantage");
+	aRepo.save(a);
+	Avantage Avan= aRepo.findOne(1);
+	assertTrue(Avan.getId()== 1);
+	a.setCode("avantage2");
+	aRepo.save(a);
+	Avan= aRepo.findOne(1);
+	assertTrue("avantage2".equals(Avan.getCode()));
+
 }
 }

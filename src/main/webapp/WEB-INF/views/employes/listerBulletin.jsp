@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +30,7 @@
 <title>Paie</title>
 </head>
 <body class="container">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/paie">Acceuil</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,6 +52,30 @@
         </ul>
     </div>
 </nav>
-	<h1>SIRH - Gestion de la paie</h1>
+	<h1>Liste des bulletins</h1>
+
+	<table>
+		<tr>
+			<th>Date de création</th>
+			<th>Periode</th>
+			<th>Matricule</th>
+			<th>Salaire brut</th>
+			<th>Net imposable</th>
+			<th>Net à payer</th>
+			<th>Action</th>
+		</tr>
+		<c:forEach items="${bulletins}" var="bull">
+			
+		<tr>
+			<td>${bull.dateCreation}</td>
+			<td>${bull.periode.dateDebut}-${bull.periode.dateFin}</td>
+			<td>${bull.remunerationEmploye.matricule}</td>
+			<td>XXXXX</td>
+			<td>XXXXX</td>
+			<td>XXXXX</td>
+			<td><a href="visualiser?id=${bull.id}">visualisé</td>
+		</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

@@ -29,10 +29,29 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Paie</title>
 </head>
-<body>
-	<a href="/paie/mvc/employes/creer">Creer employÃ©</a>
-	<a href="/paie/mvc/employes/lister">Lister employÃ©</a>
-	<a href="/paie/mvc/bulletin/creer">Bulletin</a>
+<body class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/paie">Acceuil</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="/paie/mvc/employes/creer">Creer employé <span class="sr-only">cc</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/paie/mvc/employes/lister">Lister employé</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/paie/mvc/bulletin/creer">Creer bulletin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/paie/mvc/bulletin/lister">Lister bulletin</a>
+        </li>
+        </ul>
+    </div>
+</nav>
 	<h1>Liste des employés</h1>
 
 	<table>

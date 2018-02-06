@@ -4,19 +4,22 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "grade")
 public class Grade {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
-	@Column(name = "code", length = 30)
+	@Column(name = "code", length = 100)
 	private String code;
-	@Column(name = "nbHeuresBase", scale=2)
+	@Column(name = "nbHeuresBase")
 	private BigDecimal nbHeuresBase;
-	@Column(name = "tauxBase", scale=2)
+	@Column(name = "tauxBase")
 	private BigDecimal tauxBase;
 	
 	public String getCode() {

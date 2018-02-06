@@ -45,6 +45,5 @@ public void test_sauvegarder_lister_mettre_a_jour() {
 	avan2 = aRepo.findByCode(Avan.getCode());
 	assertTrue(Avan.equals(avan2));
 
-
 }
 }

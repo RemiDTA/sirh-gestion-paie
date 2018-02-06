@@ -11,18 +11,10 @@
 		<junit.version>4.12</junit.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<hibernate.version>5.1.0.Final</hibernate.version>
 	</properties>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-			</resource>
-			<resource>
-				<directory>src/main/ressources</directory>
-			</resource>
-		</resources>
 		<finalName>paie</finalName>
 		<pluginManagement>
 			<plugins>
@@ -52,16 +44,17 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-java8</artifactId>
 			<version>${hibernate.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -78,7 +71,7 @@
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
-			<version>1.1.7</version>
+			<version>2.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -94,7 +87,7 @@
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
+			<version>1.0.2.Final</version>
 		</dependency>
 		<!-- Implémentation JPA -->
 		<dependency>
@@ -124,7 +117,7 @@
 			<version>1.2</version>
 		</dependency>
 
-		
+
 	</dependencies>
 
 

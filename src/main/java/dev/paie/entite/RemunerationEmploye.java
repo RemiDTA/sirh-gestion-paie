@@ -1,7 +1,11 @@
 package dev.paie.entite;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "remunerationEmploye")
 public class RemunerationEmploye {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
 	@Column(name = "code", length = 30)
@@ -23,7 +28,9 @@ public class RemunerationEmploye {
 	@ManyToOne
 	@JoinColumn(name="grade_id")
 	private Grade grade;
-
+	@Column(name="dateCreation")
+	private LocalDate dateCreation;
+	
 	public String getMatricule() {
 		return matricule;
 	}
@@ -63,5 +70,15 @@ public class RemunerationEmploye {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public LocalDate getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(LocalDate dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+
 
 }

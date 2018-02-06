@@ -2,23 +2,26 @@ package dev.paie.entite;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "entreprise")
 public class Entreprise {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
-	@Column(name = "siret", length = 30)
+	@Column(name = "siret", length = 100)
 	private String siret;
-	@Column(name = "denomination", length = 30)
+	@Column(name = "denomination", length = 100)
 	private String denomination;
-	@Column(name = "adresse", length = 30)
+	@Column(name = "adresse", length = 100)
 	private String adresse;
-	@Column(name = "urssaf", length = 30)
+	@Column(name = "urssaf", length = 100)
 	private String urssaf;
-	@Column(name = "codeNaf", length = 30)
+	@Column(name = "codeNaf", length = 100)
 	private String codeNaf;
 
 	public String getDenomination() {

@@ -30,8 +30,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		 * 
 		 * <load-on-startup>1</load-on-startup> </servlet>
 		 */
-		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher",
-				new DispatcherServlet(webContext));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher",new DispatcherServlet(webContext));
 		dispatcher.setLoadOnStartup(1);
 		/*
 		 * <servlet-mapping> <servlet-name>dispatcher</servlet-name>

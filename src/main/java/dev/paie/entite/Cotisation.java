@@ -5,21 +5,24 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "cotisation")
 public class Cotisation {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
-	@Column(name = "code", length = 30)
+	@Column(name = "code", length = 100)
 	private String code;
-	@Column(name = "libelle", length = 30)
+	@Column(name = "libelle", length = 100)
 	private String libelle;
-	@Column(name = "tauxSalarial", scale=2)
+	@Column(name = "tauxSalarial")
 	private BigDecimal tauxSalarial;
-	@Column(name = "tauxPatronal", scale=2)
+	@Column(name = "tauxPatronal")
 	private BigDecimal tauxPatronal;
 
 	public String getCode() {

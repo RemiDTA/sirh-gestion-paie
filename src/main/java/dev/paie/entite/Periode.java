@@ -4,19 +4,20 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "periode")
 public class Periode {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
-	@Column(name = "dateDebut")
+	@Column
 	private LocalDate dateDebut;
-	@Column(name = "dateFin")
+	@Column
 	private LocalDate dateFin;
 	
 	public LocalDate getDateDebut() {

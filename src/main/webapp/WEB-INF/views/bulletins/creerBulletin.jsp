@@ -4,10 +4,6 @@
 <html lang="en">
 
 <head>
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/css.css" />
-<script src="https://code.jquery.com/jquery-1.12.3.js"></script>
-<script src="<%=request.getContextPath()%>/js/ajoutCollaborateur.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -52,30 +48,28 @@
         </ul>
     </div>
 </nav>
-	<h1>Liste des bulletins</h1>
-
+<h1>Créer Bulletin</h1>
+<form:form method="post" modelAttribute="bulletin"
+	action="/paie/mvc/bulletin/creer">
 	<table>
-		<tr>
-			<th>Date de création</th>
-			<th>Periode</th>
-			<th>Matricule</th>
-			<th>Salaire brut</th>
-			<th>Net imposable</th>
-			<th>Net à payer</th>
-			<th>Action</th>
+	<tr>
+			<td>prime exceptionnelle</td>
+			<td><form:input type="number" path="primeExceptionnelle" /></td>
 		</tr>
-		<c:forEach items="${bulletins}" var="bull">
-			
 		<tr>
-			<td>${bull.dateCreation}</td>
-			<td>${bull.periode.dateDebut}-${bull.periode.dateFin}</td>
-			<td>${bull.remunerationEmploye.matricule}</td>
-			<td>XXXXX</td>
-			<td>XXXXX</td>
-			<td>XXXXX</td>
-			<td><a href="visualiser?id=${bull.id}">visualisé</td>
+			<form:select path="remunerationEmploye.id">
+				<c:forEach items="${emp}" var="e">
+					<form:option value="${e.id}">${e.matricule}</form:option>
+				</c:forEach>
+			</form:select>
 		</tr>
-		</c:forEach>
+		<tr>
+			<form:select path="periode.id">
+				<c:forEach items="${per}" var="p">
+					<form:option value="${p.id}">${p.dateDebut}-${p.dateFin}</form:option>
+				</c:forEach>
+			</form:select>
+		</tr>
+<input type="submit">
 	</table>
-</body>
-</html>
+</form:form>

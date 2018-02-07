@@ -28,7 +28,7 @@ public class BulletinController {
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
 	public ModelAndView creerBulletin() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("employes/creerBulletin");
+		mv.setViewName("bulletins/creerBulletin");
 		// Recuperation des periodes et des RemunerationEmploye
 		List<RemunerationEmploye> listEmp = em.createQuery("SELECT e FROM RemunerationEmploye e", RemunerationEmploye.class).getResultList();
 		List<Periode> listPer = em.createQuery("SELECT p FROM Periode p", Periode.class).getResultList();
@@ -56,7 +56,7 @@ public class BulletinController {
 		List<BulletinSalaire> listBull = em.createQuery("SELECT b FROM BulletinSalaire b", BulletinSalaire.class).getResultList();
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("employes/listerBulletin");
+		mv.setViewName("bulletins/listerBulletin");
 		mv.addObject("bulletins", listBull);
 		return mv;
 	}
@@ -65,7 +65,7 @@ public class BulletinController {
 	@Transactional
 	public ModelAndView visualiserBulletin(@RequestParam("id") int id) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("employes/visualiserBulletin");
+		mv.setViewName("bulletins/visualiserBulletin");
 		// Recuperation du bulletin passé en paramètre
 		BulletinSalaire bulletin = em.find(BulletinSalaire.class, id);
 		

@@ -41,7 +41,7 @@ public class JpaConfig {
 
         //reset les tables
         Properties props = new Properties();
-        //props.put("javax.persistence.schema-generation.database.action", "drop-and-create");
+        props.put("javax.persistence.schema-generation.database.action", "drop-and-create");
         factory.setJpaProperties(props);
         
         factory.afterPropertiesSet();

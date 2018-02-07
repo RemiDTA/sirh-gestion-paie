@@ -9,8 +9,9 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.format.datetime.joda.LocalDateParser;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,8 @@ import dev.paie.entite.Entreprise;
 import dev.paie.entite.Grade;
 import dev.paie.entite.Periode;
 import dev.paie.entite.ProfilRemuneration;
+import dev.paie.entite.Utilisateur;
+import dev.paie.entite.Utilisateur.ROLES;
 
 @Service
 public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
@@ -26,7 +29,7 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
 
 
 	@PersistenceContext private EntityManager em;
-
+	@Autowired private PasswordEncoder passwordEncoder;
 
 	@Transactional
 	@Override
@@ -96,6 +99,23 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
 			p.setDateFin(finP);
 			em.persist(p);
 		}
+		
+		Utilisateur cyrrius = new Utilisateur();
+		cyrrius.setEstActif(false);
+		cyrrius.setMotDePasse(passwordEncoder.encode("rastapass"));
+		cyrrius.setNomUtilisateur("cyrrius");
+		cyrrius.setRole(ROLES.ROLE_ADMINISTRATEUR);
+				
+		em.persist(cyrrius);
+		
+		Utilisateur quentin = new Utilisateur();
+		quentin.setEstActif(false);
+		quentin.setMotDePasse(passwordEncoder.encode("quentin"));
+		quentin.setNomUtilisateur("quentin");
+		quentin.setRole(ROLES.ROLE_UTILISATEUR);
+				
+		em.persist(quentin); 
+		
 	}
 
 }
